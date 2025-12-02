@@ -41,7 +41,7 @@ This environment is ideal for practising IT Support, Desktop Support, Service De
 ## 2️⃣ Virtual Network  
 - **VNet:** `AD-Lab-VNet`  
 - **Subnet:** `default`  
-- **Address Space:** `10.0.0.0/24`
+- **Address Space:** `10.0.0.0/16`
 
 ![VN](Screenshots/AD-LAB-VN.PNG)
 
