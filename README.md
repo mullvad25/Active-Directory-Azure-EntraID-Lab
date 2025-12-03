@@ -256,8 +256,120 @@ Successfully tested with `locktest`.
 
 ---
 
-This completes Phase 2.  
-Next: **Phase 3 — Security Groups & Role-Based Access (RBAC)**.
+---
+
+# 📌 Phase 3 — Security Groups (RBAC) + Phase 3.5 — File Share Permissions
+
+Phase 3 and Phase 3.5 implement enterprise-style access control using  
+**security groups**, **NTFS permissions**, and department-based RBAC.  
+This reflects how real organisations secure shared folders and manage user access.
+
+---
+
+## 🗂️ Department Security Groups Created
+
+All groups were created under the `_Groups` OU with:
+
+- **Scope:** Global  
+- **Type:** Security  
+
+### Created Groups:
+- IT_Staff  
+- HR_Staff  
+- Finance_Staff  
+- Sales_Staff  
+- Operations_Staff  
+
+Each user from Phase 2 was added to their corresponding department group.
+
+📸 **Screenshots:**  
+- `Screenshots/GroupsList.PNG`  
+- `Screenshots/User_MemberOf.PNG`
+
+These confirm groups were created and users were correctly assigned.
+
+---
+
+## 📂 Shared Folder Structure (C:\Shares)
+
+A root share directory was created to host department folders:
+
+```
+C:\Shares\
+    IT
+    HR
+    Finance
+    Sales
+    Operations
+```
+
+📸 **Screenshot:**  
+- `Screenshots/SharesFolderStructure.PNG`
+
+---
+
+## 🔐 NTFS Permissions (Least Privilege Model)
+
+Each department folder had NTFS inheritance disabled and permissions converted into explicit entries.
+
+Final NTFS permissions per folder:
+
+- **SYSTEM – Full Control**  
+- **Administrators – Full Control**  
+- **<Department>_Staff – Modify**  
+
+This enforces strict RBAC and prevents cross-department access.
+
+📸 **Screenshots:**  
+- `Screenshots/NTFSPermissions_IT.PNG`  
+- `Screenshots/NTFSPermissions_HR.PNG`  
+- `Screenshots/NTFSPermissions_Finance.PNG`  
+- `Screenshots/NTFSPermissions_Sales.PNG`  
+- `Screenshots/NTFSPermissions_Operations.PNG`
+
+---
+
+## 🧪 Access Control Testing (RBAC Validation)
+
+Access was tested by signing into the server using **IT user accounts**  
+and attempting to open multiple department folders.
+
+### Expected Behaviour:
+| User | Should Access | Should Be Denied |
+|------|----------------|------------------|
+| areid (IT) | IT folder | HR, Finance, Sales, Operations |
+
+This behaviour was confirmed.
+
+📸 **Screenshots:**  
+- `Screenshots/IT_User_Access_ITFolder.PNG`  
+- `Screenshots/IT_User_AccessDenied_HR.PNG`
+
+(Additional HR/Finance test screenshots can be added later.)
+
+---
+
+## 🎯 What This Phase Demonstrates
+
+Completing Phases 3 and 3.5 shows capability in:
+
+- Creating and managing AD security groups  
+- Applying NTFS permissions using least privilege  
+- Disabling inheritance and removing unwanted access  
+- Implementing real-world RBAC folder structures  
+- Testing and validating user permissions  
+- Accurately troubleshooting access issues  
+
+This skillset is directly relevant to IT support and junior sysadmin roles.
+
+---
+
+# ✔️ Phase 3 + 3.5 Complete  
+Next: **Phase 4 — Group Policies (GPOs)**  
+Including login banner, password policy, mapped network drives, and desktop wallpaper deployment.
+
+---
+
 
 ---
 
