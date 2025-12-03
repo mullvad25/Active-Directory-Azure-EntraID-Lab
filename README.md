@@ -351,12 +351,10 @@ Expected behaviour:
 |--------|----------|--------|
 | IT | Allowed | ✔ Confirmed |
 | HR | Denied | ✔ Confirmed |
-| Finance | Denied | Not tested |
-| Sales | Denied | Not tested |
-| Operations | Denied | Not tested |
+
 
 📸 IT user accessing IT folder  
-![IT Folder Access](./Screenshots/IT_User_Access_ITfolder.PNG)
+![IT Folder Access](./Screenshots/IT_User_Access_ITFolder.PNG)
 
 📸 IT user denied from HR folder  
 ![Access Denied HR](./Screenshots/IT_User_AccessDenied_HR.PNG)
