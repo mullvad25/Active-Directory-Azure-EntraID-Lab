@@ -410,8 +410,8 @@ Configured:
 - Reset counter after 15 minutes  
 
 ### Screenshots  
-![Password Policy](screenshots/SecurityPolicy_PasswordSettings.PNG)  
-![Lockout Policy](screenshots/SecurityPolicy_LockoutSettings.PNG)
+![Password Policy](Screenshots/SecurityPolicy_PasswordSettings.PNG)  
+![Lockout Policy](Screenshots/SecurityPolicy_LockoutSettings.PNG)
 
 ---
 
@@ -427,7 +427,7 @@ Configured:
 - Message text: This system is for authorised use only. Activity may be monitored and recorded.  
 
 ### Screenshot  
-![Login Banner](screenshots/LoginBanner.PNG)
+![Login Banner](Screenshots/LoginBanner.PNG)
 
 ---
 
@@ -444,7 +444,7 @@ Configured under System → Removable Disks:
 - Deny write access  
 
 ### Screenshot  
-![USB Block Policy](screenshots/DisableUSB.PNG)
+![USB Block Policy](Screenshots/DisableUSB.PNG)
 
 ---
 
@@ -464,12 +464,12 @@ Root: \\AD-Lab-VM\Shares\
 | Operations| O:           | \\AD-Lab-VM\Shares\Operations|
 
 ### Screenshot (IT)
-![IT Drive Mapping](screenshots/IT_DriveMapping.PNG)
+![IT Drive Mapping](Screenshots/IT_DriveMapping.PNG)
 
 ---
 
 # ⭐ 4.5 Corporate Wallpaper  
-**GPO Name:** ORG-Wallpaper  
+**GPO Name:** ORG-Wallppaper  
 **Linked To:** _Users OU
 
 Wallpaper stored in:
@@ -481,7 +481,7 @@ Wallpaper stored in:
 Applied using Desktop Wallpaper policy set to Fill.
 
 ### Screenshot  
-![Wallpaper Policy](screenshots/DesktopWallpaper.PNG)
+![Wallpaper Policy](Screenshots/DesktopWallpaper.PNG)
 
 ---
 
@@ -492,7 +492,7 @@ Applied using Desktop Wallpaper policy set to Fill.
 Prevents standard users from opening Control Panel or PC Settings.
 
 ### Screenshot  
-![Control Panel Disabled](screenshots/DisableControlPanel.PNG)
+![Control Panel Disabled](Screenshots/DisableControlPanel.PNG)
 
 ---
 
@@ -505,7 +505,7 @@ gpupdate /force
 ```
 
 ### Screenshot  
-![GPO Update](screenshots/GPOUpdate.PNG)
+![GPO Update](Screenshots/GPOUpdate.PNG)
 
 ---
 
@@ -520,9 +520,9 @@ Verified:
 - Control Panel blocked  
 
 ### Screenshots  
-![Drive Mapping Test](screenshots/Test_DriveMappings.PNG)  
-![Wallpaper Test](screenshots/Test_Wallpaper.PNG)  
-![Control Panel Test](screenshots/Test_ControlPanel.PNG)
+![Drive Mapping Test](Screenshots/Test_DriveMappings.PNG)  
+![Wallpaper Test](Screenshots/Test_Wallpaper.PNG)  
+![Control Panel Test](Screenshots/Test_ControlPanel.PNG)
 
 ---
 
