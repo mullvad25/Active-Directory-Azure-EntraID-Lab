@@ -532,6 +532,139 @@ Phase 4 successfully implemented organisation wide Group Policy settings includi
 
 
 ---
+# ⭐ Phase 5 — Windows 11 Client Deployment Using Tailscale (Completed)
+
+Phase 5 connects a remote Windows 11 VM to the Azure hosted Domain Controller using Tailscale, simulating a real corporate remote worker environment.  
+This allows secure delivery of DNS, LDAP, Kerberos and GPOs over an encrypted mesh network.
+
+---
+
+# ⭐ 5.1 Tailscale Network Setup
+
+Tailscale was installed on:
+
+- AD-Lab-VM (Domain Controller)  
+- Host PC (DESKTOP-ASOA97E)  
+- Windows 11 Client VM  
+
+Each device received a private Tailscale IP:
+
+| Machine | Tailscale IP |
+|---------|--------------|
+| AD-Lab-VM | `100.85.64.63` |
+| Host PC | `100.89.252.38` |
+| Windows 11 VM | `100.x.x.x` |
+
+This created a secure mesh network allowing the Windows 11 VM to communicate with the Domain Controller even though they are in different locations.
+
+### 📸 Required Screenshot  
+- Tailscale running on AD-Lab-VM  
+  `Screenshots/Tailscale_DC.png`
+
+---
+
+# ⭐ 5.2 DNS Configuration on Windows 11 VM
+
+Active Directory requires clients to use the Domain Controller for DNS.
+
+DNS was set as:
+
+- Preferred DNS: `100.85.64.63`  
+- Alternate DNS: `8.8.8.8` (optional)
+
+This forces all Active Directory queries through the Domain Controller.
+
+### 📸 Required Screenshot  
+- Windows 11 DNS settings  
+  `Screenshots/W11_DNS.png`
+
+---
+
+# ⭐ 5.3 Connectivity Checks
+
+Before joining the domain:
+
+nslookup lab.local
+
+
+DNS successfully resolved the domain through the Domain Controller’s Tailscale IP.
+
+(ICMP ping blocking is normal in Azure environments.)
+
+### 📸 Required Screenshot  
+- Successful nslookup  
+  `Screenshots/W11_NSLookup.png`
+
+---
+
+# ⭐ 5.4 Joining the Windows 11 VM to lab.local
+
+The VM was joined to the domain using:
+
+lab.local
+lab\itadmin
+
+After reboot, the domain relationship was established.
+
+### 📸 Required Screenshot  
+- Domain join success screen  
+  `Screenshots/DomainJoinSuccess.png`
+
+---
+
+# ⭐ 5.5 Domain Login and GPO Application
+
+Logged in using the IT user:
+lab\areid
+
+
+The initial login took longer due to:
+
+- New profile creation  
+- GPOs applying over Tailscale  
+- SYSVOL and NETLOGON access over encrypted tunnel  
+
+Once logged in, these GPOs were confirmed working:
+
+- Corporate wallpaper  
+- Drive mappings  
+- Control Panel restriction  
+- Login banner  
+
+### 📸 Required Screenshots  
+- Wallpaper applied  
+  `Screenshots/Wallpaper.png`  
+- Drive mapping visible  
+  `Screenshots/DriveMapping.png`  
+- Control Panel blocked  
+  `Screenshots/ControlPanelBlocked.png`
+
+---
+
+# ⭐ 5.6 Confirmation in Active Directory
+
+The Windows 11 VM appeared under the **_Computers** container in ADUC, confirming a successful join and trust relationship.
+
+### 📸 Required Screenshot  
+- Computer object in ADUC  
+  `Screenshots/Client_ADUC.png`
+
+---
+
+# 🎉 Phase 5 Completed
+
+This phase demonstrated:
+
+- Secure remote AD communication using mesh VPN  
+- Remote domain join capability  
+- DNS redirection for Active Directory  
+- Delivery of GPOs over encrypted WAN  
+- SYSVOL access and GPO enforcement through Tailscale  
+- Realistic simulation of remote employee onboarding  
+
+This is advanced enterprise level AD and networking knowledge typically used by IT Support, Systems Engineers and Cloud Administrators.
+
+---
 
 
 ---
