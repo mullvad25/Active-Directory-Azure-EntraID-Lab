@@ -606,10 +606,6 @@ lab\itadmin
 
 After reboot, the domain relationship was established.
 
-### 📸 Required Screenshot  
-- Domain join success screen  
-  `Screenshots/DomainJoinSuccess.png`
-
 ---
 
 # ⭐ 5.5 Domain Login and GPO Application
