@@ -559,7 +559,7 @@ This created a secure mesh network allowing the Windows 11 VM to communicate wit
 
 ### 📸 Required Screenshot  
 - Tailscale running on AD-Lab-VM  
-  ![Tailscale](Screenshots/Tailscale_DC.png)
+  ![Tailscale](Screenshots/Tailscale_DC.PNG)
 
 ---
 
@@ -576,7 +576,7 @@ This forces all Active Directory queries through the Domain Controller.
 
 ### 📸 Required Screenshot  
 - Windows 11 DNS settings  
-  ![W11 DNS](Screenshots/W11_DNS.png)
+  ![W11 DNS](Screenshots/W11_DNS.PNG)
 
 ---
 
@@ -593,7 +593,7 @@ DNS successfully resolved the domain through the Domain Controller’s Tailscale
 
 ### 📸 Required Screenshot  
 - Successful nslookup  
- ![NS Lookup](Screenshots/W11_NSLookup.png)
+ ![NS Lookup](Screenshots/W11_NSLookup.PNG)
 
 ---
 
@@ -629,11 +629,11 @@ Once logged in, these GPOs were confirmed working:
 
 ### 📸 Required Screenshots  
 - Wallpaper applied  
-  ![Wallpaper](Screenshots/Wallpaper.png)  
+  ![Wallpaper](Screenshots/Wallpaper.PNG)  
 - Drive mapping visible  
-  ![DriveMapping](Screenshots/DriveMapping.png)  
+  ![DriveMapping](Screenshots/DriveMapping.PNG)  
 - Control Panel blocked  
-  ![Control Panel Blocked](Screenshots/ControlPanelBlocked.png)
+  ![Control Panel Blocked](Screenshots/ControlPanelBlocked.PNG)
 
 ---
 
@@ -643,7 +643,7 @@ The Windows 11 VM appeared under the **_Computers** container in ADUC, confirmin
 
 ### 📸 Required Screenshot  
 - Computer object in ADUC  
-  ![Client AD](Screenshots/Client_ADUC.png)
+  ![Client AD](Screenshots/Client_ADUC.PNG)
 
 ---
 
