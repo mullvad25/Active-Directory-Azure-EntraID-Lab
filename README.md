@@ -711,13 +711,13 @@ All scenarios were performed using the Windows Server 2025 Domain Controller and
 “Emma Patel has moved from Sales to Finance. She needs Finance access and her Finance drive is not appearing.”
 
 ### 🛠 Resolution Steps  
-- Removed user from **Sales_Staff_Members**  
-- Added to **Finance_Staff_Members**  
+- Removed user from **Sales_Staff**  
+- Added to **Finance_Staff**  
 - Moved user to **_Departments → Finance**  
 - Updated Finance Drive Mapping GPO:  
   - UNC Path: `\\AD-Lab-VM\Shares\Finance`  
   - Drive Letter: F:  
-  - Correct Item-level targeting: Finance_Staff_Members  
+  - Correct Item-level targeting: **Finance_Staff**  
 - Restarted client and applied policies using gpupdate  
 - Finance folder accessible, Sales folder denied  
 
@@ -743,7 +743,7 @@ This is copied to create new employees.
 - Copied **new.starter** template  
 - Created **aclarke**  
 - Moved to **_Departments → HR**  
-- Added to **HR_Staff_Members**  
+- Added to **HR_Staff**  
 - Verified correct permissions  
   - HR folder allowed  
   - Other departments denied
@@ -784,7 +784,6 @@ This phase demonstrates practical, real-world IT support skills including:
 - Department access changes  
 
 These scenarios mirror the daily responsibilities of a Service Desk Technician, Desktop Support Engineer, or Junior Sysadmin inside an enterprise environment.
-
 
 
 ---
