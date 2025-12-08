@@ -248,15 +248,12 @@ To allow non-admin users (like `locktest`) to use RDP:
 
 Configured via **Default Domain Policy**:
 
-- Lockout threshold: 3 attempts  
-- Lockout duration: 30 minutes  
-- Reset counter after: 30 minutes  
+- Lockout threshold: 5 attempts  
+- Lockout duration: 15 minutes  
+- Reset counter after: 15 minutes  
 
 Successfully tested with `locktest`.
 
----
-
----
 ---
 
 # 📌 Phase 3 — Department File Shares and NTFS Security (Completed)
@@ -661,6 +658,133 @@ This phase demonstrated:
 This is advanced enterprise level AD and networking knowledge typically used by IT Support, Systems Engineers and Cloud Administrators.
 
 ---
+# ⭐ Phase 6 — Helpdesk Ticket Simulation (Real IT Support Scenarios)
+
+This phase simulates real Service Desk and IT Support tasks that occur daily inside organisations.  
+Each scenario demonstrates troubleshooting skills across Active Directory, permissions, Group Policy, and user lifecycle management.
+
+The following six scenarios were completed:
+
+1. Password Reset  
+2. Account Unlock  
+3. Department Change (Permissions + Drive Mapping)  
+4. New Starter Onboarding  
+5. Offboarding User  
+
+All scenarios were performed using the Windows Server 2025 Domain Controller and the Windows 11 client machine.
+
+---
+
+# ✅ Scenario 1: Password Reset (User Forgot Password)
+
+### 📝 Ticket  
+“Hi IT, I cannot log into my account, I think I forgot my password.”
+
+### 🛠 Resolution  
+- Reset password in ADUC  
+- User logged in successfully using new password
+
+### 📸 Screenshots  
+![Password Reset](Screenshots/PasswordReset_ADUC.PNG)  
+![Password Reset Success](Screenshots/PasswordReset_LoginSuccess.PNG)
+
+---
+
+# ✅ Scenario 2: Account Locked Out
+
+### 📝 Ticket  
+“I typed my password wrong too many times and my account is locked.”
+
+### 🛠 Resolution  
+- Unlocked the account using ADUC → Account tab  
+- User logged in successfully afterwards
+
+### 📸 Screenshots  
+![Account Locked Checkbox](Screenshots/AccountUnlock_LockedStatus.PNG)  
+![Account Unlock Success](Screenshots/AccountUnlock_LoginSuccess.PNG)
+
+---
+
+# ✅ Scenario 3: Department Change (Permissions + Drive Mapping Fix)
+
+### 📝 Ticket  
+“Emma Patel has moved from Sales to Finance. She needs Finance access and her Finance drive is not appearing.”
+
+### 🛠 Resolution Steps  
+- Removed user from **Sales_Staff_Members**  
+- Added to **Finance_Staff_Members**  
+- Moved user to **_Departments → Finance**  
+- Updated Finance Drive Mapping GPO:  
+  - UNC Path: `\\AD-Lab-VM\Shares\Finance`  
+  - Drive Letter: F:  
+  - Correct Item-level targeting: Finance_Staff_Members  
+- Restarted client and applied policies using gpupdate  
+- Finance folder accessible, Sales folder denied  
+
+### 📸 Screenshots  
+![Updated Group Membership](Screenshots/DeptChange_GroupMembership.PNG)  
+![Finance Access Allowed](Screenshots/DeptChange_AccessAllowed.PNG)  
+![Sales Access Denied](Screenshots/DeptChange_AccessDenied.PNG)
+
+---
+
+# ✅ Scenario 4: New Starter Onboarding (Using Onboarding Template)
+
+A disabled onboarding template account already existed:
+new.starter
+
+
+This is copied to create new employees.
+
+### 📝 Ticket  
+“Please create an account for new HR employee Aaliyah Clarke.”
+
+### 🛠 Resolution Steps  
+- Copied **new.starter** template  
+- Created **aclarke**  
+- Moved to **_Departments → HR**  
+- Added to **HR_Staff_Members**  
+- Verified correct permissions  
+  - HR folder allowed  
+  - Other departments denied
+
+### 📸 Screenshots  
+![HR Access Allowed](Screenshots/Onboarding_HRAccess.PNG)  
+![Access Denied](Screenshots/Onboarding_AccessDenied.PNG)
+
+---
+
+# ✅ Scenario 5: Offboarding User
+
+### 📝 Ticket  
+“Please disable the account for departing employee: Chloe Adams.”
+
+### 🛠 Resolution Steps  
+- Disabled domain account  
+- Removed security group memberships  
+- Moved to Offboarded OU (optional)  
+- Verified user can no longer log in
+
+### 📸 Screenshots  
+![Disabled Account](Screenshots/Offboarding_DisabledAccount.PNG)  
+![Failed Login](Screenshots/Offboarding_LoginFailed1.PNG)
+
+---
+
+# ⭐ Phase Outcome
+
+This phase demonstrates practical, real-world IT support skills including:
+
+- Identity management  
+- Password and account recovery  
+- Group-based access control  
+- Drive mapping troubleshooting  
+- User onboarding and offboarding  
+- NTFS and GPO validation  
+- Department access changes  
+
+These scenarios mirror the daily responsibilities of a Service Desk Technician, Desktop Support Engineer, or Junior Sysadmin inside an enterprise environment.
+
 
 
 ---
