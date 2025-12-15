@@ -797,8 +797,7 @@ This phase focuses on:
 - Conditional Access
 - Modern Microsoft MFA requirements
 
-This phase reflects real enterprise identity behaviour rather than simplified lab assumptions.
-
+This phase reflects real enterprise identity behaviour rather than simplified lab assumptions. 
 ---
 
 ## 8.1 – Microsoft Entra Tenant Setup
@@ -812,9 +811,8 @@ The tenant is used to:
 - Enforce MFA and security controls
 
 No cloud-only users are used for daily access in this lab.
-
-📸 Screenshot:
-- Entra tenant overview showing tenant name and Entra ID blade
+![Entra Home Page](Screenshots/8.1%Entra%tenant.PNG)  
+ 
 
 ---
 
@@ -838,9 +836,11 @@ After initial synchronisation:
 This confirmed successful directory synchronisation.
 
 📸 Screenshots:
-- Entra Connect configuration summary
-- Entra ID users list showing synced users
-- Entra ID groups list showing synced groups
+![Entra User Setup](Screenshots/8.2Users.PNG)  
+![Entra Group Setup](Screenshots/8.2Groups.PNG)
+![Entra Devices Setup](Screenshots/8.2Devices.PNG)
+
+
 
 ---
 
@@ -868,8 +868,10 @@ This confirms a healthy hybrid join and valid cloud trust.
 
 📸 Screenshots:
 
-dsregcmd /status output
-Entra ID devices page showing the hybrid-joined Windows 11 client
+![Entra AdJoined Setup](Screenshots/8.3AzureAdJoined.PNG)
+![Entra AdPort Setup](Screenshots/8.3AzureAdPort.PNG)
+![Entra DevicesJoined Setup](Screenshots/8.3DeviceJoined.PNG)
+
 
 ---
 ## 8.4 – Hybrid Sign-In Behaviour (Expected)
@@ -921,6 +923,8 @@ Result:
 - Administrative roles are also required to complete MFA
 - Aligns with Microsoft mandatory MFA requirements
 
+![Entra MFA Setup](Screenshots/8.6.1CAMFA.PNG)
+
 ---
 
 ### 8.6.2 – Require Hybrid-Joined Devices
@@ -942,6 +946,8 @@ Result:
 - Non-joined or untrusted devices are blocked
 - Initial blocking demonstrated real-world Conditional Access troubleshooting
 
+![Entra Hybrid CA Setup](Screenshots/8.6.2CAHybridJoin.PNG)
+
 ---
 
 ### 8.6.3 – Block Legacy Authentication
@@ -959,6 +965,8 @@ Result:
 - Legacy authentication protocols are blocked
 - Modern authentication remains unaffected
 
+![Entra Block Legacy Authentication Setup](Screenshots/8.6.3CABlockLegacyAuth.PNG)
+
 ---
 ## 8.7 – Emergency (Break-Glass) Account
 
@@ -971,6 +979,8 @@ Characteristics:
 - Not used for day-to-day administration or normal sign-ins
 
 This setup mirrors Microsoft best practice for identity recovery while maintaining a secure Zero Trust posture.
+
+![Entra Break Glass Admin Setup](Screenshots/8.7Breakglassadmin.PNG)
 
 ---
 ## 8.8 – Validation and Testing
