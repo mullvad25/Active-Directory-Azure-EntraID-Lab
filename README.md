@@ -853,20 +853,19 @@ These scenarios mirror the daily responsibilities of a Service Desk Technician, 
 
 
 ---
-# 📌 Phase 8 – Entra ID Hybrid Identity & Conditional Access (Completed)
+# 📌 Phase 7 – Entra ID Hybrid Identity & Conditional Access (Completed)
 
-Phase 8 extends the on-premises Active Directory environment into Microsoft Entra ID, creating a realistic hybrid identity and Zero Trust access model.
+Phase 7 extends the on-premises Active Directory environment into Microsoft Entra ID, creating a realistic hybrid identity and Zero Trust access model.
 
 This phase focuses on:
 - Hybrid identity
 - Device trust
 - Conditional Access
 - Modern Microsoft MFA requirements
-
-This phase reflects real enterprise identity behaviour rather than simplified lab assumptions. 
+ 
 ---
 
-## 8.1 – Microsoft Entra Tenant Setup
+## 7.1 – Microsoft Entra Tenant Setup
 
 A Microsoft Entra tenant was created to represent the organisation’s cloud identity platform.
 
@@ -882,7 +881,7 @@ No cloud-only users are used for daily access in this lab.
 
 ---
 
-## 8.2 – Entra Connect Sync (On-Prem to Cloud)
+## 7.2 – Entra Connect Sync (On-Prem to Cloud)
 
 Microsoft Entra Connect Sync was installed on the domain controller.
 
@@ -910,7 +909,7 @@ This confirmed successful directory synchronisation.
 
 ---
 
-## 8.3 – Hybrid Azure AD Join (Windows 11 Client)
+## 7.3 – Hybrid Azure AD Join (Windows 11 Client)
 
 The existing Windows 11 client, already domain-joined, was hybrid joined to Entra ID.
 
@@ -940,7 +939,7 @@ This confirms a healthy hybrid join and valid cloud trust.
 
 
 ---
-## 8.4 – Hybrid Sign-In Behaviour (Expected)
+## 7.4 – Hybrid Sign-In Behaviour (Expected)
 
 After hybrid join and directory synchronisation, the following sign-in behaviour is observed:
 
@@ -952,7 +951,7 @@ After hybrid join and directory synchronisation, the following sign-in behaviour
 This behaviour is expected for hybrid-joined devices and confirms correct integration between on-prem Active Directory and Microsoft Entra ID.
 
 ---
-## 8.5 – Microsoft Mandatory MFA Behaviour
+## 7.5 – Microsoft Mandatory MFA Behaviour
 
 During this phase, modern Microsoft security enforcement behaviour was observed within the Entra ID tenant.
 
@@ -965,7 +964,7 @@ Key observations:
 This lab follows Microsoft’s current security posture and platform-enforced MFA requirements rather than attempting to bypass or weaken them.
 
 ---
-## 8.6 – Conditional Access Policies
+## 7.6 – Conditional Access Policies
 
 Conditional Access policies were implemented to enforce Zero Trust principles within the hybrid identity environment.
 
@@ -973,7 +972,7 @@ Three policies were created to control access based on user identity, device tru
 
 ---
 
-### 8.6.1 – Require MFA for Users
+### 7.6.1 – Require MFA for Users
 
 **Purpose:** Enforce multi-factor authentication for users and administrators.
 
@@ -993,7 +992,7 @@ Result:
 
 ---
 
-### 8.6.2 – Require Hybrid-Joined Devices
+### 7.6.2 – Require Hybrid-Joined Devices
 
 **Purpose:** Allow access only from trusted devices.
 
@@ -1016,7 +1015,7 @@ Result:
 
 ---
 
-### 8.6.3 – Block Legacy Authentication
+### 7.6.3 – Block Legacy Authentication
 
 **Purpose:** Prevent insecure legacy authentication methods.
 
@@ -1034,7 +1033,7 @@ Result:
 ![Entra Block Legacy Authentication Setup](Screenshots/8.6.3CABlockLegacyAuth.PNG)
 
 ---
-## 8.7 – Emergency (Break-Glass) Account
+## 7.7 – Emergency (Break-Glass) Account
 
 An emergency access (break-glass) account was configured to ensure tenant recovery in the event of misconfiguration or Conditional Access lockout.
 
@@ -1049,7 +1048,7 @@ This setup mirrors Microsoft best practice for identity recovery while maintaini
 ![Entra Break Glass Admin Setup](Screenshots/8.7Breakglassadmin.PNG)
 
 ---
-## 8.8 – Validation and Testing
+## 7.8 – Validation and Testing
 
 Validation was performed to confirm correct hybrid identity behaviour and Conditional Access enforcement.
 
