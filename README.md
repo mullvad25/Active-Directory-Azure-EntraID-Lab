@@ -14,20 +14,22 @@ The lab demonstrates core IT support and identity skills including domain creati
 
 ---
 
-# 🎯 Project Overview
+## 🎯 Project Overview
 
-This lab simulates a real on-premises IT environment using cloud-hosted Azure VMs.
+This lab simulates a real enterprise identity environment using cloud-hosted Azure VMs. Starting with a traditional Active Directory deployment on Windows Server 2025, it has been extended into Microsoft Entra ID to demonstrate hybrid identity, device trust, and modern cloud security controls.
 
 **Completed so far:**
+- Deployed Windows Server 2025 as an Azure VM with static private IP for domain stability
+- Installed Active Directory Domain Services and created the `lab.local` forest
+- Joined client machines to the domain and validated login behaviour
+- Built and synchronised identities into Microsoft Entra ID using Entra Connect
+- Hybrid joined devices and confirmed cloud trust
+- Designed and enforced Conditional Access policies including MFA, trusted devices, and blocking legacy auth
+- Configured break-glass emergency account and verified secure recovery behaviour
+- Performed validation testing to reflect real enterprise access scenarios
 
-- Deployed a Windows Server 2025 Azure VM  
-- Assigned static private IP for DC reliability  
-- Installed Active Directory Domain Services  
-- Promoted server to a Domain Controller  
-- Created the forest/domain `lab.local`  
-- Logged in using domain credentials (`lab\labadmin`)  
+This environment is ideal for practising practical IT support, hybrid identity management, Zero Trust access control, and junior sysadmin skills. 
 
-This environment is ideal for practising IT Support, Desktop Support, Service Desk, and junior Sysadmin tasks.
 
 ---
 
