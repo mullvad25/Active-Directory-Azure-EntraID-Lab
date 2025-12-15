@@ -4,32 +4,93 @@
 ![Windows Server](https://img.shields.io/badge/Windows%20Server-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Active Directory](https://img.shields.io/badge/Active%20Directory-0067C5?style=for-the-badge&logo=microsoft&logoColor=white)
 ![Microsoft Entra ID](https://img.shields.io/badge/Microsoft%20Entra%20ID-4F46E5?style=for-the-badge&logo=microsoft&logoColor=white)
-![Help Desk](https://img.shields.io/badge/Help%20Desk%20Skills-4CAF50?style=for-the-badge)
-
-This project is a hands-on Active Directory and Microsoft Entra ID hybrid lab built entirely in Microsoft Azure.  
-It recreates a realistic enterprise identity environment using a Windows Server 2025 Domain Controller integrated with Microsoft Entra ID.
-
-The lab demonstrates core IT support and identity skills including domain creation, DNS, user and group management, hybrid identity, device trust, Conditional Access, MFA enforcement, RDP, and Azure VM administration.
-
 
 ---
 
 ## 🎯 Project Overview
 
-This lab simulates a real enterprise identity environment using cloud-hosted Azure VMs. Starting with a traditional Active Directory deployment on Windows Server 2025, it has been extended into Microsoft Entra ID to demonstrate hybrid identity, device trust, and modern cloud security controls.
+This project is a hands-on enterprise identity environment built in Microsoft Azure. It simulates a real-world IT setup starting with on-prem Active Directory on Windows Server 2025 and extending into Microsoft Entra ID using a modern hybrid identity and Zero Trust access model.
 
-**Completed so far:**
-- Deployed Windows Server 2025 as an Azure VM with static private IP for domain stability
-- Installed Active Directory Domain Services and created the `lab.local` forest
-- Joined client machines to the domain and validated login behaviour
-- Built and synchronised identities into Microsoft Entra ID using Entra Connect
-- Hybrid joined devices and confirmed cloud trust
-- Designed and enforced Conditional Access policies including MFA, trusted devices, and blocking legacy auth
-- Configured break-glass emergency account and verified secure recovery behaviour
-- Performed validation testing to reflect real enterprise access scenarios
+The environment is designed to reflect realistic enterprise behaviour rather than simplified lab assumptions. It covers identity lifecycle management, device trust, Conditional Access, and Microsoft enforced MFA, with validation and troubleshooting carried out at each stage.
 
-This environment is ideal for practising practical IT support, hybrid identity management, Zero Trust access control, and junior sysadmin skills. 
+This project demonstrates practical IT support, desktop support, and junior systems administration skills in a hybrid cloud environment.
 
+---
+
+## 🧠 Skills Demonstrated
+
+- Windows Server 2025 administration
+- Active Directory Domain Services
+- DNS configuration and troubleshooting
+- Organisational Units, users, and security groups
+- Group Policy design and enforcement
+- NTFS file permissions and access control
+- Windows 11 domain joined client management
+- Microsoft Entra ID hybrid identity
+- Entra Connect Sync with OU filtering
+- Hybrid Azure AD Join and device trust
+- Conditional Access and Zero Trust principles
+- Multi-Factor Authentication enforcement
+- Legacy authentication blocking
+- Identity and sign-in troubleshooting
+- Azure virtual machine administration
+
+---
+
+## 🏗 Architecture Overview
+
+The environment consists of:
+- Azure Virtual Network hosting all resources
+- Windows Server 2025 Domain Controller
+- Windows 11 domain joined client
+- Microsoft Entra ID tenant
+- Entra Connect Sync bridging on-prem AD and Entra ID
+- Conditional Access enforcing access controls at the cloud layer
+
+This mirrors a common small to mid-sized enterprise hybrid identity architecture.
+
+---
+
+## 📚 Project Phases
+
+### Phase 1 – Azure Infrastructure Setup
+Provisioned Azure resources and deployed Windows Server 2025 as a virtual machine. Networking, inbound rules, and base VM configuration were completed to support domain services.
+
+### Phase 2 – Domain Controller Deployment
+Installed Active Directory Domain Services and promoted the server to a Domain Controller. Created the `lab.local` forest and configured DNS for reliable authentication.
+
+### Phase 3 – Active Directory Structure
+Built a realistic organisational structure using OUs, users, and security groups. Validated domain authentication using domain credentials.
+
+### Phase 4 – Group Policy Implementation
+Designed and applied Group Policy Objects to enforce security baselines including password policies, account lockout rules, and user restrictions. Policies were tested and verified.
+
+### Phase 5 – Client Machine Domain Join
+Deployed a Windows 11 client and joined it to the domain. Verified policy application, authentication, and trust from the client perspective.
+
+### Phase 6 – File Shares and Permissions
+Configured NTFS file shares with role-based access control. Tested permissions using different user accounts to validate least privilege access.
+
+### Phase 7 – Security Hardening and Administration
+Applied administrative best practices including access separation, system hardening, and realistic support level configurations. Focused on common troubleshooting scenarios.
+
+### Phase 8 – Entra ID Hybrid Identity and Conditional Access
+Extended the on-prem Active Directory into Microsoft Entra ID using Entra Connect Sync. Hybrid joined devices, enforced Conditional Access policies, required MFA, blocked legacy authentication, and configured an emergency break-glass account. Validated Zero Trust behaviour through testing.
+
+---
+
+## 🔧 Troubleshooting and Lessons Learned
+
+- Hybrid joined devices use cloud identity for Single Sign-On by design
+- Microsoft enforced MFA applies even when Conditional Access policies are set to report-only
+- Device trust can be enforced without Intune compliance
+- Conditional Access is often the root cause of unexpected sign-in behaviour
+- `dsregcmd /status` is critical for validating hybrid join health
+
+---
+## ✅ Project Outcome
+
+This project demonstrates the full lifecycle of building, securing, and validating a modern hybrid identity environment. It reflects current Microsoft security standards and real enterprise behaviour, making it suitable as a portfolio project for IT support, service desk, and junior systems administration roles.
 
 ---
 
