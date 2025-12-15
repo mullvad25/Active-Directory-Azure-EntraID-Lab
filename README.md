@@ -1,13 +1,16 @@
-# 🛠 Active Directory Lab in Azure (Windows Server 2025)
+# 🛠 Active Directory & Entra ID Hybrid Lab in Azure (Windows Server 2025)
 
 ![Azure](https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![Windows Server](https://img.shields.io/badge/Windows%20Server-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Active Directory](https://img.shields.io/badge/Active%20Directory-0067C5?style=for-the-badge&logo=microsoft&logoColor=white)
+![Microsoft Entra ID](https://img.shields.io/badge/Microsoft%20Entra%20ID-4F46E5?style=for-the-badge&logo=microsoft&logoColor=white)
 ![Help Desk](https://img.shields.io/badge/Help%20Desk%20Skills-4CAF50?style=for-the-badge)
 
-This project is a hands-on Active Directory lab built entirely in Microsoft Azure.  
-It recreates a real enterprise IT environment with a Windows Server 2025 Domain Controller.  
-The goal is to demonstrate core IT support skills including domain creation, DNS, user management, RDP, and Azure VM administration.
+This project is a hands-on Active Directory and Microsoft Entra ID hybrid lab built entirely in Microsoft Azure.  
+It recreates a realistic enterprise identity environment using a Windows Server 2025 Domain Controller integrated with Microsoft Entra ID.
+
+The lab demonstrates core IT support and identity skills including domain creation, DNS, user and group management, hybrid identity, device trust, Conditional Access, MFA enforcement, RDP, and Azure VM administration.
+
 
 ---
 
