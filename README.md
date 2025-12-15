@@ -199,7 +199,7 @@ This already demonstrates Tier 1 and Tier 2 support capabilities.
 | Static Private IP Configuration | ![Static IP](Screenshots/static.PNG) |
 | Domain Controller Confirmation | ![Domain Controller](Screenshots/Domain%20Controller.PNG) |
 
-# 📌 Phase 2 — Active Directory Foundation Completed 
+# 📌 Phase 2 — Active Directory Foundation 
 
 Phase 2 establishes the core Active Directory environment inside `lab.local`.  
 This includes departments, users, admin accounts, service accounts, onboarding accounts, RDP permissions, and domain-level security policies.
@@ -322,7 +322,7 @@ Successfully tested with `locktest`.
 
 ---
 
-# 📌 Phase 3 — Department File Shares and NTFS Security (Completed)
+# 📌 Phase 3 — Department File Shares and NTFS Security 
 
 Phase 3 introduces enterprise-style file sharing and NTFS permission design.  
 Each department receives a secure folder and access is granted strictly through AD security groups.  
@@ -595,7 +595,7 @@ Phase 4 successfully implemented organisation wide Group Policy settings includi
 
 
 ---
-# ⭐ Phase 5 — Windows 11 Client Deployment Using Tailscale (Completed)
+# ⭐ Phase 5 — Windows 11 Client Deployment Using Tailscale
 
 Phase 5 connects a remote Windows 11 VM to the Azure hosted Domain Controller using Tailscale, simulating a real corporate remote worker environment.  
 This allows secure delivery of DNS, LDAP, Kerberos and GPOs over an encrypted mesh network.
@@ -853,7 +853,7 @@ These scenarios mirror the daily responsibilities of a Service Desk Technician, 
 
 
 ---
-# 📌 Phase 7 – Entra ID Hybrid Identity & Conditional Access (Completed)
+# 📌 Phase 7 – Entra ID Hybrid Identity & Conditional Access
 
 Phase 7 extends the on-premises Active Directory environment into Microsoft Entra ID, creating a realistic hybrid identity and Zero Trust access model.
 
