@@ -855,7 +855,7 @@ Hybrid join behaviour:
 
 Verification was performed on the Windows 11 client using:
 
-```powershell
+powershell
 dsregcmd /status
 Confirmed values:
 
