@@ -54,28 +54,28 @@ This mirrors a common small to mid-sized enterprise hybrid identity architecture
 ## 📚 Project Phases
 
 ### Phase 1 – Azure Infrastructure Setup
-Provisioned Azure resources and deployed Windows Server 2025 as a virtual machine. Networking, inbound rules, and base VM configuration were completed to support domain services.
+Deployed Azure virtual machines and networking required to support a domain-based enterprise environment.
 
-### Phase 2 – Domain Controller Deployment
-Installed Active Directory Domain Services and promoted the server to a Domain Controller. Created the `lab.local` forest and configured DNS for reliable authentication.
+### Phase 2 – Active Directory Structure
+Built the Active Directory domain structure including organisational units, users, and security groups to mirror a real organisation.
 
-### Phase 3 – Active Directory Structure
-Built a realistic organisational structure using OUs, users, and security groups. Validated domain authentication using domain credentials.
+### Phase 3 – Department File Shares and NTFS Security
+Created departmental file shares and applied NTFS permissions using role-based access control and least privilege principles.
 
-### Phase 4 – Group Policy Implementation
-Designed and applied Group Policy Objects to enforce security baselines including password policies, account lockout rules, and user restrictions. Policies were tested and verified.
+### Phase 3.5 – Access Testing and Verification
+Validated file access and permissions by testing with different user accounts to confirm correct security enforcement.
 
-### Phase 5 – Client Machine Domain Join
-Deployed a Windows 11 client and joined it to the domain. Verified policy application, authentication, and trust from the client perspective.
+### Phase 4 – Group Policy Configuration
+Designed and applied Group Policy Objects to enforce security baselines, user restrictions, and domain policies.
 
-### Phase 6 – File Shares and Permissions
-Configured NTFS file shares with role-based access control. Tested permissions using different user accounts to validate least privilege access.
+### Phase 5 – Windows 11 Client Deployment Using Tailscale
+Deployed a Windows 11 client and securely connected it to the domain using Tailscale, simulating remote corporate access.
 
-### Phase 7 – Security Hardening and Administration
-Applied administrative best practices including access separation, system hardening, and realistic support level configurations. Focused on common troubleshooting scenarios.
+### Phase 6 – Helpdesk Ticket Simulation (Real IT Support Scenarios)
+Simulated common helpdesk scenarios including access issues, permission changes, and user troubleshooting to reflect real IT support workflows.
 
-### Phase 8 – Entra ID Hybrid Identity and Conditional Access
-Extended the on-prem Active Directory into Microsoft Entra ID using Entra Connect Sync. Hybrid joined devices, enforced Conditional Access policies, required MFA, blocked legacy authentication, and configured an emergency break-glass account. Validated Zero Trust behaviour through testing.
+### Phase 7 – Entra ID Hybrid Identity and Conditional Access
+Extended on-prem Active Directory into Microsoft Entra ID, hybrid joined devices, enforced Conditional Access, required MFA, and implemented Zero Trust controls.
 
 ---
 
