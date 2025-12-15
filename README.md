@@ -787,6 +787,215 @@ These scenarios mirror the daily responsibilities of a Service Desk Technician, 
 
 
 ---
+# 📌 Phase 8 – Entra ID Hybrid Identity & Conditional Access (Completed)
+
+Phase 8 extends the on-premises Active Directory environment into Microsoft Entra ID, creating a realistic hybrid identity and Zero Trust access model.
+
+This phase focuses on:
+- Hybrid identity
+- Device trust
+- Conditional Access
+- Modern Microsoft MFA requirements
+
+This phase reflects real enterprise identity behaviour rather than simplified lab assumptions.
+
+---
+
+## 8.1 – Microsoft Entra Tenant Setup
+
+A Microsoft Entra tenant was created to represent the organisation’s cloud identity platform.
+
+The tenant is used to:
+- Host synced users and groups
+- Register hybrid-joined devices
+- Apply Conditional Access policies
+- Enforce MFA and security controls
+
+No cloud-only users are used for daily access in this lab.
+
+📸 Screenshot:
+- Entra tenant overview showing tenant name and Entra ID blade
+
+---
+
+## 8.2 – Entra Connect Sync (On-Prem to Cloud)
+
+Microsoft Entra Connect Sync was installed on the domain controller.
+
+Configuration highlights:
+- Sync type: Entra Connect Sync
+- Source directory: On-prem Active Directory
+- OU filtering enabled to sync only required objects:
+  - Users
+  - Groups
+  - Computers
+
+After initial synchronisation:
+- On-prem users appeared in Entra ID
+- Security groups appeared in Entra ID
+- The Windows 11 client later appeared as a hybrid-joined device
+
+This confirmed successful directory synchronisation.
+
+📸 Screenshots:
+- Entra Connect configuration summary
+- Entra ID users list showing synced users
+- Entra ID groups list showing synced groups
+
+---
+
+## 8.3 – Hybrid Azure AD Join (Windows 11 Client)
+
+The existing Windows 11 client, already domain-joined, was hybrid joined to Entra ID.
+
+Hybrid join behaviour:
+- Device remains joined to on-prem Active Directory
+- Device is also registered in Entra ID
+- Cloud services can trust the device
+
+Verification was performed on the Windows 11 client using:
+
+```powershell
+dsregcmd /status
+Confirmed values:
+
+DomainJoined : YES
+AzureAdJoined : YES
+AzureAdPrt : YES
+CloudTgt : YES
+
+This confirms a healthy hybrid join and valid cloud trust.
+
+📸 Screenshots:
+
+dsregcmd /status output
+Entra ID devices page showing the hybrid-joined Windows 11 client
+
+---
+## 8.4 – Hybrid Sign-In Behaviour (Expected)
+
+After hybrid join and directory synchronisation, the following sign-in behaviour is observed:
+
+- Signing in with on-prem domain credentials automatically maps to the cloud identity
+- Windows uses the Entra ID identity to obtain cloud tokens for Single Sign-On
+- Access to Microsoft 365 and other cloud services occurs without reauthentication
+- Attempts to force a purely local domain-only sign-in are overridden by design
+
+This behaviour is expected for hybrid-joined devices and confirms correct integration between on-prem Active Directory and Microsoft Entra ID.
+
+---
+## 8.5 – Microsoft Mandatory MFA Behaviour
+
+During this phase, modern Microsoft security enforcement behaviour was observed within the Entra ID tenant.
+
+Key observations:
+- Password-only cloud identities are no longer permitted
+- All cloud users are required to register at least one authentication method
+- Privileged and administrative roles are expected to use MFA
+- MFA may be enforced by the Microsoft platform even when Conditional Access policies are set to report-only
+
+This lab follows Microsoft’s current security posture and platform-enforced MFA requirements rather than attempting to bypass or weaken them.
+
+---
+## 8.6 – Conditional Access Policies
+
+Conditional Access policies were implemented to enforce Zero Trust principles within the hybrid identity environment.
+
+Three policies were created to control access based on user identity, device trust, and authentication method.
+
+---
+
+### 8.6.1 – Require MFA for Users
+
+**Purpose:** Enforce multi-factor authentication for users and administrators.
+
+Configuration:
+- Users: All users
+- Excluded: Emergency (break-glass) account only
+- Cloud apps: All cloud apps
+- Grant: Require multi-factor authentication
+- Status: Enabled
+
+Result:
+- Users are required to complete MFA
+- Administrative roles are also required to complete MFA
+- Aligns with Microsoft mandatory MFA requirements
+
+---
+
+### 8.6.2 – Require Hybrid-Joined Devices
+
+**Purpose:** Allow access only from trusted devices.
+
+Configuration:
+- Users: All users
+- Excluded: Emergency account
+- Device platform: Windows
+- Grant: Require Hybrid Azure AD joined device
+- Status: Enabled
+
+Note:
+“Require compliant device” was intentionally not used, as device compliance via Intune is outside the scope of this lab.
+
+Result:
+- Hybrid-joined Windows 11 client is allowed access
+- Non-joined or untrusted devices are blocked
+- Initial blocking demonstrated real-world Conditional Access troubleshooting
+
+---
+
+### 8.6.3 – Block Legacy Authentication
+
+**Purpose:** Prevent insecure legacy authentication methods.
+
+Configuration:
+- Users: All users
+- Excluded: Emergency account
+- Client apps: Legacy authentication clients only
+- Grant: Block access
+- Status: Enabled
+
+Result:
+- Legacy authentication protocols are blocked
+- Modern authentication remains unaffected
+
+---
+## 8.7 – Emergency (Break-Glass) Account
+
+An emergency access (break-glass) account was configured to ensure tenant recovery in the event of misconfiguration or Conditional Access lockout.
+
+Characteristics:
+- No administrative roles assigned
+- Excluded from all Conditional Access policies
+- MFA exclusion allowed only for emergency access scenarios
+- Not used for day-to-day administration or normal sign-ins
+
+This setup mirrors Microsoft best practice for identity recovery while maintaining a secure Zero Trust posture.
+
+---
+## 8.8 – Validation and Testing
+
+Validation was performed to confirm correct hybrid identity behaviour and Conditional Access enforcement.
+
+Test 1 – Hybrid-Joined Device Access  
+- Sign-in from the hybrid-joined Windows 11 client  
+- MFA challenge presented  
+- Access successfully granted  
+
+Test 2 – Untrusted Device Access  
+- Sign-in attempt from a non-joined device  
+- Access blocked by Conditional Access  
+
+Test 3 – Legacy Authentication  
+- Legacy authentication attempts blocked  
+- Modern authentication methods remain unaffected  
+
+Test 4 – Admin MFA Enforcement  
+- Privileged role sign-ins require MFA  
+- Enforcement applied through Conditional Access and Microsoft platform rules  
+
+These tests confirm correct policy application and realistic enterprise security behaviour.
+
 
 # 🧑‍💻 Author  
 **Mohammad Masood (mullvad25)**  
