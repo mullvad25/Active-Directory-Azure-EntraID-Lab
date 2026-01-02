@@ -710,6 +710,9 @@ The Windows 11 VM appeared under the **_Computers** container in ADUC, confirmin
 
 ---
 
+Remote Access Validation (RDP)
+Remote Desktop was enabled on the Windows 11 domain-joined client to validate secure remote administration. The client was accessed over a private Tailscale network using its assigned Tailscale IP, authenticating with domain credentials. During the remote session, Group Policy application and user access were verified, confirming successful authentication, policy delivery, and remote connectivity without exposing public RDP access.
+
 # 🎉 Phase 5 Completed
 
 This phase demonstrated:
@@ -720,6 +723,7 @@ This phase demonstrated:
 - Delivery of GPOs over encrypted WAN  
 - SYSVOL access and GPO enforcement through Tailscale  
 - Realistic simulation of remote employee onboarding  
+- RDP was enabled
 
 This is advanced enterprise level AD and networking knowledge typically used by IT Support, Systems Engineers and Cloud Administrators.
 
